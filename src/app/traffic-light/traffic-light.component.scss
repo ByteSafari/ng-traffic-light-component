@@ -1,0 +1,199 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+  @media ( max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+$phone-factor: 0.7;
+$desktop-factor: 1.3;
+
+$container-height: 300px;
+$container-width: 0.425 * $container-height;
+$light-diameter: 0.25 * $container-height;
+$left-margin: 0.2 * $container-width; 
+$top-first-light: 0.05 * $container-height; 
+$top-second-light: (0.0625 * $container-height) +  $top-first-light + $light-diameter;
+$top-third-light: (0.0625 * $container-height) +  $top-second-light + $light-diameter;
+
+.trafficlight{
+  background: #222;
+  width: $container-width;
+  height: $container-height;
+
+  @include phone(){
+    width: $container-width * $phone-factor;
+    height: $container-height * $phone-factor;
+  }
+
+  @include desktop(){
+    width: $container-width * $desktop-factor;
+    height: $container-height * $desktop-factor;
+  }
+  border-radius: 5px;
+  position: relative;
+}
+
+
+.red{
+  background: red;
+  width: $light-diameter;
+  height: $light-diameter;
+  top: $top-first-light;
+  left: $left-margin;
+
+  @include phone(){
+    width: $light-diameter * $phone-factor;
+    height: $light-diameter * $phone-factor;
+    top: $top-first-light * $phone-factor;
+    left: $left-margin * $phone-factor;
+  }
+
+  @include desktop(){
+    width: $light-diameter * $desktop-factor;
+    height: $light-diameter * $desktop-factor;
+    top: $top-first-light * $desktop-factor;
+    left: $left-margin * $desktop-factor;
+  }
+
+  border-radius: 50%;
+  position: absolute;
+}
+
+.yellow{
+  background: yellow;
+  width: $light-diameter;
+  height: $light-diameter;
+  top: $top-second-light;
+  left: $left-margin;
+ 
+  @include phone(){
+    width: $light-diameter * $phone-factor;
+    height: $light-diameter * $phone-factor;
+    top: $top-second-light * $phone-factor;
+    left: $left-margin * $phone-factor;
+  }
+
+  @include desktop(){
+    width: $light-diameter * $desktop-factor;
+    height: $light-diameter * $desktop-factor;
+    top: $top-second-light * $desktop-factor;
+    left: $left-margin * $desktop-factor;
+  }
+
+  border-radius: 50%;
+  position: absolute;
+}
+
+.green{
+  background: green;
+  width: $light-diameter;
+  height: $light-diameter;
+  top: $top-third-light;
+  left: $left-margin;
+ 
+  @include phone(){
+    width: $light-diameter * $phone-factor;
+    height: $light-diameter * $phone-factor;
+    top: $top-third-light * $phone-factor;
+    left: $left-margin * $phone-factor;
+  }
+
+  @include desktop(){
+    width: $light-diameter * $desktop-factor;
+    height: $light-diameter * $desktop-factor;
+    top: $top-third-light * $desktop-factor;
+    left: $left-margin * $desktop-factor;
+  }
+
+  border-radius: 50%;
+  position: absolute;
+}
+
+.undefined{
+  background: yellow;
+  width: $light-diameter;
+  height: $light-diameter;
+  top: $top-second-light;
+  left: $left-margin;
+ 
+  @include phone(){
+    width: $light-diameter * $phone-factor;
+    height: $light-diameter * $phone-factor;
+    top: $top-second-light * $phone-factor;
+    left: $left-margin * $phone-factor;
+  }
+
+  @include desktop(){
+    width: $light-diameter * $desktop-factor;
+    height: $light-diameter * $desktop-factor;
+    top: $top-second-light * $desktop-factor;
+    left: $left-margin * $desktop-factor;
+  }
+  border-radius: 50%;
+  position: absolute;
+  animation: 5s undefined infinite; 
+}
+
+.lightOff {
+  opacity: .25;
+}
+
+.lightOn {
+  opacity: 1;
+}
+
+@keyframes red{
+  0%{opacity: 1}
+  20%{opacity: 1}
+  40%{opacity: 1}
+  60%{opacity: .1}
+  80%{opacity: .1}
+  100%{opacity: .1}
+}
+
+@keyframes yellow{
+  0%{opacity: .1}
+  20%{opacity: .1}
+  40%{opacity: 1}
+  50%{opacity: .1}
+  60%{opacity: .1}
+  80%{opacity: .1}
+  100%{opacity: .1}
+}
+
+@keyframes green{
+  0%{opacity: .1}
+  20%{opacity: .1}
+  40%{opacity: .1}
+  60%{opacity: 1}
+  80%{opacity: 1}
+  83%{opacity: .1}
+  86%{opacity: 1}
+  89%{opacity: .1}
+  93%{opacity: 1}
+  96%{opacity: .1}
+  100%{opacity: 1}
+}
+
+@keyframes undefined{
+  0%{opacity: 1}
+  25%{opacity: .1}
+  50%{opacity: 1}
+  75%{opacity: .1}
+  100%{opacity: 1}
+}
