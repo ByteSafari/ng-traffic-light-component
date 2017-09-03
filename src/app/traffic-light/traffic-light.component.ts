@@ -7,19 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TrafficLightComponent implements OnInit {
 
-// ToDo:
-// Unit Test
-// Flex size of traffic light (responsive?)
-// Documentation / Credentials
-// GitHub
-
-// Examples how to control
-// Scheduler Class
-// Web Socket endpoint
-// Redux
-
-// https://embed.plnkr.co/XaAWHluIJPD3KSc8ZLtc/
-// + Enum Interface
   private _trafficLightState: TrafficLightState;
   
   @Input() 

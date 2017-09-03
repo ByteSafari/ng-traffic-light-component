@@ -1,28 +1,29 @@
-# BsTrafficLight
+# Angular 4 multi purpose responsive traffic light component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+  ___.            __                         _____             .__ 
+      \_ |__ ___.__._/  |_  ____   ___________ _/ ____\____ _______|__|
+      | __ <   |  |\   __\/ __ \ /  ___/\__  \\   __\\__  \\_  __ \  |
+      | \_\ \___  | |  | \  ___/ \___ \  / __ \|  |   / __ \|  | \/  |
+      |___  / ____| |__|  \___  >____  >(____  /__|  (____  /__|  |__|
+          \/\/                \/     \/      \/           \/          
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Multi purpose responsive traffic light control
 
-## Code scaffolding
+Constructor
+``` js
+this.trafficLightState = TrafficLightState.undefined;
+      this.trafficLightState$ = Observable.interval(2000)
+          .map(i => Math.floor(Math.random() * 4));
+```
+ngOnInit
+``` js
+this.trafficLightState$.subscribe(state => this.trafficLightState = state);
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+[Credits for traffic light css](https://codepen.io/samarkandiy/pen/JxnCF)
 
-## Build
+[Example use in SB Admin](https://github.com/start-angular/SB-Admin-BS4-Angular-4) 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+![Traffic light](src/assets/SBAdminNg4Phone.JPG)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
